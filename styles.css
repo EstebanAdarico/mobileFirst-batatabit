@@ -1,0 +1,559 @@
+
+/* 
+1.posicionamiento 
+2.Modelo de cajas 
+3.Tipografía
+4.Visuales
+5.Otros */
+
+/* donde se implementa las variables  */
+:root{
+
+/* primero serán las varibles de color  */
+   --bitcoin-orange:#F7931a;
+   --soft-orange:#ffe9d5;
+   --secundary-blue:#1a9af7;
+   --sof-blues:#E7F5FF;
+   --warm-black:#201E1C;
+   --black:#282623;
+   --grey:#BABABA;
+   --off-white:#FAF8F7;
+   --just-white:#FFFFFF;
+}
+/* selector universal */
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+/* todo html */
+html{
+ /* para hacer uso de la unidad de medidad rem   1.7rem = 17 px */
+   font-size: 62.5%;
+
+ /* será la fuente  principal  */
+   font-family: 'DM Sans', sans-serif;
+}
+
+/* como que la plantilla en general tendra esos valores */
+header{
+   position:relative;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   /* LO QUE SIGNIFICA QUE LA PANTALLA NO SE HARÁ MAS CHICA DE 320 */
+   min-width: 320px;
+   height: 334px;
+   /* alinear el texto al centro text align center */
+   text-align: center;
+   /* AGREGANDO BACKGORUND */
+   background: linear-gradient(207.8deg,#201E1C 14.69%,#F7931a 100%);
+
+}
+/* modificando la imagen a los SIZES -- USANDO ESPECIFICIDAD */
+header img{
+   width: 150px;
+   height: 24px;
+   margin-top: 60px;
+
+   /* alinear a un elemento que TENGA COMO CONTENEDOR CON DISPLAY FLEX - EN ESTE CASO SU HEADER */
+   align-self: center;
+   
+}
+.header__title--container{
+   width: 90%;
+   min-width:288px;
+   max-width:900px;
+   height:218px;
+   /* PARA LOGRAR SEPARAR DE TODO */
+   margin-top:40px;
+   /* CENTRAR TANTO DERECHA COMO A SU IZQUIERDA */
+   text-align: center;
+   align-self: center;
+}
+.header__title--container h1{
+   font-size: 2.4rem;
+   font-weight: bold;
+   /* la dimension que habrá entre linea */
+   line-height: 2.9rem;
+   color:var(--just-white)
+
+}
+.header__title--container p{
+   margin-top:25px;
+   font-size: 1.4rem;
+   font-weight: 500;
+   line-height: 1.8rem;
+   color:var(--soft-orange)
+}
+.header__title--container .header--button{
+   /*  PARA ACTIVAR TOP BOT LEFT RIGTH*/
+   /* VA A TOMAR COMO POSICION RELATIVE A SU PADRE , PARA QUE ESTÉ EN MEDIO DE LAS DOS SECCIONES */
+   position: absolute;
+   left: calc(50% - 118px);
+   top: 270px;
+   display: block;
+   margin-top: 35px;
+   padding: 15px;
+   width: 229px;
+   height: 48px;
+   background-color: var(--off-white);
+   /* SOMBRA */
+   box-shadow: 0px 4px 8px rgba(89, 73, 30 ,0.16);
+   border: none;
+   border-radius: 5px;
+   /* DIMENSIONES A LAS FUENTES  */
+   font-size: 1.4rem;
+   font-weight:bold;
+   /* PARA ANULAR LA LINEA DEL ENLACE */ 
+   text-decoration: none;
+   color:var(--black);
+}
+/* LO QUE SIGUE DESPUES DE HEADER BUTTON  ES SPAN Y AHI ES DONDE MODIFICA */
+.header--button span{
+   display: inline-block;
+   width: 13px;
+   height: 8px;
+   margin-left: 10px;
+   background-image:url("./assets/icons/down-arrow.svg");
+}
+/* #########  HASTA AQUÍ ES EL HEADER */
+main{
+   width: 100%;
+   height: auto;
+   background-color: var(--off-white);
+}  
+.main__exchange--container{
+   width: 100%;
+   height: auto;
+   padding-top: 80px;
+   padding-bottom: 30px;
+   text-align: center;
+}
+.main__exchange__container--title{
+   width: 90%;
+   /* MANEJADO EL MAXMIMO Y EL MINIMO DEL SIZES DE LOS ANCHOS o width's*/
+   min-width: 288px;
+   max-width: 900px;
+   margin: 0 auto;
+}
+/* IMAGEN DE BACKGROUND Y DAR LOS ESTILOS */
+.main__exchange--container .backgroundImg{
+   width: 200px;
+   height: 200px;
+   margin: 0 auto;
+   margin-bottom: 50px;
+   background-image: url("./assets/img/Bitcoin.svg");
+   /* para que si ampliamos , la imagen siempre este centrada */
+   background-size: cover;
+   /* para que la imagen siempre este centrada */
+   background-position: center;
+   /* para que si ampliamos la imagen  la imagen no se repita */
+   background-repeat: no-repeat;
+}
+.main__exchange__container--title h2{
+   /* para darle margen desde abajo */
+   margin-bottom: 30px;
+   /* tamaño de letra en rem */
+   font-size: 2.4rem;
+   /* grosor del salto de linea */
+   font-weight: bold;   
+   /* salto de linea se puede guardar en variable */
+   line-height: 2.6rem;
+   color: var(--black);
+}
+.main__exchange__container--title p{   
+   margin-bottom: 30px;
+   font-size: 1.4rem;
+   font-weight: 500;
+   line-height: 1.6rem;
+   color: #757575;
+}
+/* ###############AQUÍ COMIENZA LA SECCIÓN DE LAS TABLAS #######*/
+.main__currency--table{
+   width: 70%;
+   min-width: 235px;
+   max-width: 500px;
+   height: 360px;
+   /* no le agregamos margin ni arriba ni abajo pero en los costados el navegador se encargara de cuadraralo */
+   margin: 0 auto;
+   font-family: "Inter",sans-serif;
+}
+/* PARA MANDAR A LLAMAR LA CLASE DEL TITULO */
+.main__currency--table .currency__table--title{
+   margin-bottom: 15px;
+   font-size: 1.8rem;
+   font-weight: bold;
+   line-height: 2.3rem;
+   color: var(--bitcoin-orange);
+}
+/* PARA DARLE ESTILO AL CONTENEDOR DE LA TABLA  */
+.currency__table--container{
+   width: 90%;
+   min-width: 230px;
+   max-width: 300px;
+   height: 250px;
+   margin: 0 auto;
+}
+
+/* DANDO LA ALTURA Y EL ANCHO POR COMPLERTO DE LA TABLA */
+.currency__table--container table {
+   width: 100%;
+   height: 100%;
+}
+/* EDITANDO LA TABLE DATA QUE CONTIENE EL TR (TABLE ROW) */
+.currency__table--container td{
+   width: 50%;
+   font-size: 1.6rem;
+   font-weight: 500;
+   line-height: 1.9rem;
+   color: var(--grey);
+   background-color: var(--just-white);
+}
+/* EDITANDO LOS BORDER DE CADA ESQUINA DE LAS TABLAS  */
+.currency__table--container .table--top-left{
+   border-radius: 15px 0 0 ;
+}
+.currency__table--container .table--top-right{
+   border-radius: 0 15px 0 0;
+}
+.currency__table--container .table--bottom-right{
+   border-radius: 0 0 15px 0;
+}
+.currency__table--container .table--bottom-left{
+   border-radius: 0 0 0 15px;
+}
+/* AQUÍ ES DONDE UTILIZAMOS EL SEGUNDO VALOR DE LA CLASE  */
+.currency__table--container .table--right{
+   font-size: 1.4rem;
+   font-weight:bold;
+   line-height: 1.7rem;
+   color: #757575;
+}
+/* EDITAMOS LOS ICONOS CON LOS ARROW'S  */
+.currency__table--container .down{
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+   margin-left: 10px;
+   background-image: url("./assets/icons/trending-down.svg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.currency__table--container .up{
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+   margin-left: 10px;
+   background-image: url("/assets/icons/trending-up.svg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+.currency__table--date{
+   width: 190px;
+   height: 30px;
+   margin: 0 auto;
+   margin-top: 15px;
+   padding: 8px;
+   background-color: var(--soft-orange);
+   border-radius: 8px;
+}
+.currency__table--date p{
+   font-size: 1.2rem;
+   line-height: 1.5rem;
+   color: var(--warm-black);
+}
+/* AQUÍ COMIENZA LA TERCERA PARTE DE LA SECCION NEGRA */
+/* el relative es importante - para que la siguiente etiqueta tome el valor de absolute */
+.main__product--detail{
+   position: relative;
+   width: 100%;
+   min-width: 320px;
+   height: auto;
+   padding: 20px 10px;
+   text-align: center;
+   background-color: var(--warm-black);
+}
+.main__product--detail .img{
+   position: absolute;
+   width: 40px;
+   height: 25px;
+   /* tecnica para posicionar la imagen  entre los dos lados de las seccion  */
+   top: -10px;
+   left: calc(50% - 20px);
+   background-image: url("/assets/icons/batata.svg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.product--detail--title{
+   width: 90%;
+   min-width: 288px;
+   height: auto;
+   margin: 0 auto;
+   margin-top: 50px;
+   text-align: center;
+}
+.product--detail--title h2{
+   margin-bottom: 30px;
+   font-size: 2.4rem;
+   font-weight: bold;
+   line-height:2.6rem;
+   color: var(--just-white);
+   
+}
+.product--detail--title p{
+   margin-bottom: 20px;
+   font-size: 1.4rem;
+   font-weight:500;
+   line-height: 1.8rem;
+   color: #808080;
+}
+/* SECCION DE LAS TARJETAS SEPARADAS EN VERTICAL  */
+/* asiganmos estilos a las tarjetas */
+.product__detail--card{
+width: 90%;
+min-width: 288px;
+/* Los cuadrados no creceran más de 400 - solo será apto para las pantallas maximo de tablet  */
+max-width: 400px;
+min-height: 150px;
+margin: 15px auto;
+padding: 15px;
+background-color: var(--black);
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+border-radius: 4px;
+}
+.product__detail--card .clock{
+   display: block;
+   width: 20px;
+   height: 20px;
+   background-image: url("/assets/icons/clock.svg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   
+}
+.product__detail--card .eyes{
+   display: block;
+   background-image: url("/assets/icons/eye.svg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 20px;
+   height: 20px;
+}
+.product__detail--card .dollar{
+   display: block;
+   background-image: url("/assets/icons/dollar-sign.svg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 20px;
+   height: 20px;
+}
+.product__detail--card .check{
+   display: block;
+   background-image: url("/assets/icons/check-circle.svg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 20px;
+   height: 20px;
+}
+/* edicion del texto h2 y el parrafo  */
+.product__detail--card .product__card--title{
+   font-size: 1.8rem;
+   font-weight: bold;
+   line-height: 1.8rem;
+   color: var(--just-white);
+   text-align: start;
+   margin-bottom: 15px;
+   margin-top: 12px;
+}
+.product__detail--card .product__card--body{
+   font-size: 1.4rem;
+   font-weight: 500;
+   line-height: 1.8rem;
+   color: #808080;
+   text-align: start;
+}
+.bitcoin__img--container{
+   width: 100%;
+   min-width: 320px;
+   
+   height: 40vh;
+   background-image:url(/assets/img/bitcoinbaby2x.jpg);
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   text-align: center;
+}
+.bitcoin__img--container h2{
+   padding-top: 65px;
+   font-size: 2.4rem;
+   font-weight: bold;
+   line-height: 2.6rem;
+   color: var(--just-white);
+   
+}
+.main__plans--container{
+   width: 100%;
+   min-width: 320px;
+   padding-bottom: 70px;
+   /* si el contenedor dentro de esto tines texto es recomendale poner text align */
+   text-align: center;
+}
+/* contenedor de la fuente  */
+.plans--title{
+   width: 90%;
+   min-width: 288px;
+   height: auto;
+   margin: 0 auto;
+   margin-top: 50px;
+
+}
+/* EDIATANDO EL TEXTO H2  */
+.plans--title h2{
+   padding-top: 50px;
+   font-size: 2.4rem;
+   font-weight: bold;
+   line-height: 2.6rem;
+   color: var(--black);
+}
+.plans--title p {
+   padding-top: 30px;
+   font-size: 1.4rem;
+   font-weight: 500;
+   line-height: 1.8rem;
+   color: #757575;
+}
+/* =====================POSICIONAMIENTO Y ANIMACION PARA LAS TARJETAS ================== */
+.plans__container--slider{
+   display: flex;
+   /* para dar espacio entre contenedores  */
+   
+   height: 316px;
+   /* para el posicionamiento en linea horizontal*/
+   overflow-x: scroll;
+   overscroll-behavior-x: contain;
+   scroll-snap-type: x proximity;
+}
+/* =====================DISEÑO DE LAS TARAJETAS=======================  */
+.plans__container--card{
+   position: relative;
+   /* ========== PARA CENTRAR DESPUES DE CADA SCROLL============== */
+   scroll-snap-align: center;
+   width: 70%;
+
+   /* para que las tarjetas no se hagan mas grande o pequeña de lo que estamos poniendo como parametro  */
+   min-width: 190px;
+   max-width: 300px;
+   height: 250px;
+   margin: 50px 10px 0;
+   padding: 0 15px;
+   background-color: var(--just-white);
+   border-radius: 15px;
+   box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+
+}
+.recomended{
+   /* su contenedor padre tiene que ser relative */
+   position: absolute;
+   width: 120px;
+   height: 31px;
+   top: -15px;
+   left: calc(50% - 60px);
+   padding: 6px;
+   font-size: 1.2rem;
+   background-color: var(--bitcoin-orange);
+   border-radius: 8px;
+   color: var(--just-white);
+}
+.plan__card--title{
+   padding-top:30px;
+   font-size:1.4rem ;
+   font-weight: 500;
+   line-height: 1.8rem;
+   color: var(--black);
+}
+.plan__card--price{
+   padding: 5px 0;
+   font-size: 5.2rem;
+   font-weight: bold;
+   
+   color: var(--black);
+}
+.plan__card--price span{
+   font-size: 1.2rem;
+   /* grosor del texto en negrita */
+   font-weight: 300;
+}
+.plan__card--saving{
+   font-size: 1.2rem;
+   color: #757575;
+}
+.plan__card--call{
+   width: 150px;
+   height: 48px;
+   margin-top: 20px;
+   background-color:#faf8f7 ;
+   border: 2px solid var(--bitcoin-orange);
+   border-radius: 4px;
+   font-size: 1.4rem;
+   font-weight: bold;
+   line-height: 1.8rem;
+   color: var(--black);
+}
+.plan__card--call span{
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   background-image: url("/assets/icons/orange-right-arrow.svg");
+   /* background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat; */
+   vertical-align: text-bottom;
+   margin-left: 10px;
+}
+
+footer{
+   /* para que las dos etiquetas queden al frente  */
+   display: flex;
+   width: 100%;
+   height: 150px;
+   background-color: var(--bitcoin-orange);
+
+}
+footer section {
+   width: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+footer .left ul{
+   font-size: 1.4rem;
+   font-weight: 500;
+   line-height: 1.5rem;
+   list-style: none;
+}
+.left li{
+   margin: 10px 0;
+}
+.left a{
+   text-decoration: none;
+   color:var(--just-white)
+}
+
+/* *BREACKPOINT PARA QUE EN 930 DONDE EMPIEZA A MODIFICARSE LOS CARDS no se note que los cards e modifican cambiando de lugar  */
+
+
+
+
+
+
+
+
+
+
+
+
